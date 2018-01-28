@@ -2,7 +2,8 @@
 
 const config = {
   apiOrigins: {
-    production: 'https://ga-wdi-boston.herokuapp.com'
+    // development: 'https://aqueous-atoll-85096.herokuapp.com',
+    production: 'https://glacial-woodland-13268.herokuapp.com'
   }
 }
 

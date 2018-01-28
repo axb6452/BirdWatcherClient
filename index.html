@@ -12,14 +12,82 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <div class="userlogin">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                Toggle
+              </button>
+              <a class="navbar-brand" href="#">THE BIRD WATCHER....for the love of birds</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <form id="sign-in" class="navbar-form navbar-right" role="form">
+                    <fieldset>
+                    <div class="input-group">
+                        <input id="email" type="email" class="form-control" name="credentials[email]" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                      <input id="password" type="password" class="form-control" name="credentials[password]" placeholder="Password">
+                    </div>
+                      <input type="submit" class="btn btn-primary" value="Login">
+                    </fieldset>
+                    <label class="message" id="lblSignInMessage"></label>
+                  </form>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        </div>
+          <div class="container">
+            <div class="col-md-6">
+              <div id="logbox">
+                <form id="sign-up">
+                  <h1>Create an Account</h1>
+                    <fieldset>
+				              <input name="credentials[email]" type="text" placeholder="Email address" class="input pass"/>
+                      <input name="credentials[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                      <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                      <input type="submit" value="Sign me up!" class="inputButton"/>
+                    </fieldset>
+                    <label class="message" id="lblSignUpMessage"></label>
+                </form>
+              </div>
+            </div>
+    <!--col-md-6-->
+          </div>
+        <!-- <form id="sign-in">
+        <fieldset>
+          <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder = "Enter Email">
+            <input type="password" name="credentials[password]" placeholder = "Enter Password">
+            <input class="btnsubmit" type="submit" name="submit" value="Sign in!">
+        </fieldset>
+        <fieldset>
+          <label class="message" id="lblSignInMessage"></label>
+        </fieldset>
+      </form>
+      <br>
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder = "Enter Email">
+          <input type="password" name="credentials[password]" placeholder = "Enter Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder = "Confirm Password">
+          <input class="btnsubmit" type="submit" name="submit" value="Sign up!">
+        </fieldset>
+        <fieldset>
+          <label class="message" id="lblSignUpMessage"></label>
+        </fieldset>
+      </form>
+      <form>
+        <fieldset>
+          <label class="message" id="lblSignOutMessage"></label>
+        </fieldset>
+      </form>
+      </div> -->
     </body>
 </html>
