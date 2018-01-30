@@ -1,5 +1,5 @@
 #!/bin/bash
 
-curl --include --request DELETE "https://glacial-woodland-13268.herokuapp.com/sightings/${ID}"
+curl --include --request DELETE "http://localhost:4741/sightings/${ID}"
 
 echo

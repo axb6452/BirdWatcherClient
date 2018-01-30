@@ -1,6 +1,6 @@
 #!bin/bash
 
-curl "https://glacial-woodland-13268.herokuapp.com/change-password" \
+curl "https://localhost:4741/change-password" \
 --include \
 --request PATCH \
 --header "Content-Type: application/json" \

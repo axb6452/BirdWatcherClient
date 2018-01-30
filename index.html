@@ -16,12 +16,8 @@
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                Toggle
-              </button>
-              <a class="navbar-brand" href="#">THE BIRD WATCHER....for the love of birds</a>
+              <a class="navbar-brand" href="#">THE BIRD TRACKER....for bird lovers</a>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav navbar-right">
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <form id="sign-in" class="navbar-form navbar-right" role="form">
@@ -38,10 +34,8 @@
                   </form>
                 </div>
               </ul>
-            </div>
           </div>
         </nav>
-        </div>
           <div class="container">
             <div class="col-md-6">
               <div id="logbox">
@@ -58,6 +52,99 @@
               </div>
             </div>
     <!--col-md-6-->
+          </div>
+          </div>
+          <div class="sighting-grid">
+            <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="#">THE BIRD TRACKER....for bird lovers</a>
+                </div>
+                  <ul class="nav navbar-nav navbar-right">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                      <form id="auth2" class="navbar-form navbar-right" role="form">
+                        <fieldset>
+                          <input id="btn-change-password" type="submit" class="btn btn-primary" value="Change Password">
+                          <input id="btn-sign-Out" type="submit" class="btn btn-primary" value="Sign Out">
+                        </fieldset>
+                        <label class="message" id="lblSignOutMessage"></label>
+                      </form>
+                    </div>
+                  </ul>
+              </div>
+            </nav>
+            <!-- <div class="container">
+              <table id="table"
+               data-toggle="table"
+               data-toolbar="#toolbar"
+               data-height="460">
+               <thead>
+                 <tr>
+                   <th data-field="id">id</th>
+                   <th data-field="bird">Bird</th>
+                   <th data-field="characteristics">Characteristics</th>
+                   <th data-field="color">Color</th>
+                 </tr>
+               </thead>
+              </table>
+              <button id="btnAdd" type="button" class="btn btn-default">Add New sighting</button>
+              </div> -->
+          <form class="form-inline">
+            <label for="clock">Current Local Time: </label>
+            <label id="clock"></label>
+            <label for="latestupdate">Latest bird sighting: </label>
+            <label id="latestupdate"></label>
+          </form>
+          <br><br>
+          <label id='lblgridmessage'></label>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-9">
+                <form class="form-inline">
+                  <input id="txtbird" type="text" placeholder="Bird Name" class="form-control mb-2 mr-sm-2 mb-sm-0" />
+                  <input id="txtcharacteristics" type="text" placeholder="Bird Characteristics" class="form-control mb-2 mr-sm-2 mb-sm-0" />
+                  <input id="txtcolor" type="text" placeholder="Bird Color" class="form-control mb-2 mr-sm-2 mb-sm-0" />
+                  <button id="btnAdd" type="button" class="btn btn-default">Add Sighting</button>
+                  <div class="ud-buttons">
+                    <button id="btnGetSingle" type="button" class="btn btn-default">Get Sighting</button>
+                    <button id="btnUpdate" type="button" class="btn btn-default">Update Sighting</button>
+                    <button id="btnDelete" type="button" class="btn btn-default">Delete Sighting</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+              <div>
+                <table class="table" id="grid">
+                  <tr>
+                    <th scope="col">Row number</th>
+                    <th scope="col">id</th>
+                    <th scope="col">Bird</th>
+                    <th scope="col">Characteristics</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">User</th>
+                  </tr>
+                </table>
+              </div>
+          </div>
+        </div>
+        <div id="dialog" style="display: none">
+          <input type="hidden" id="id" />
+            <form>
+              <div class="form-group">
+                <label for="bird">Bird</label>
+                <input type="text" class="form-control" id="bird">
+              </div>
+              <div class="form-group">
+                <label for="characteristics">Characteristics</label>
+                <input type="text" class="form-control" id="characteristics" />
+              </div>
+              <div class="form-group">
+                <label for="color">Color</label>
+                <input type="text" class="form-control" id="color" />
+              </div>
+                <button type="button" id="btnSave" class="btn btn-default">Save</button>
+                <button type="button" id="btnCancel" class="btn btn-default">Cancel</button>
+            </form>
           </div>
         <!-- <form id="sign-in">
         <fieldset>

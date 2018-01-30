@@ -1,6 +1,22 @@
 'use strict'
 
 const store = require('../store')
+const watchEvents = require('../watching/events')
+
+function clock () { // We create a new Date object and assign it to a variable called "time".
+  const time = new Date()
+  const hours = time.getHours()
+  const minutes = time.getMinutes()
+  const seconds = time.getSeconds()
+
+  $('#clock').text(harold(hours) + ':' + harold(minutes) + ':' + harold(seconds))
+  function harold (standIn) {
+    if (standIn < 10) {
+      standIn = '0' + standIn
+    }
+    return standIn
+  }
+}
 
 const signUpSuccess = function (data) {
   $('#sign-up').find('input:text').val('')
@@ -20,10 +36,13 @@ const signUpFailure = function () {
 const signInSuccess = function (data) {
   store.user = data.user
   $('.userlogin').hide()
-  $('#game-page').show()
-  $('#change-password').hide()
-  $('#game-table').hide()
-  $('#lbl-board-message').text('Select an option below to begin').css({'color': '#0F2043', 'background-color': 'white', 'width': '300px'})
+  console.log(watchEvents)
+  $('.sighting-grid').show()
+  setInterval(clock, 1000)
+  // $('#game-page').show()
+  // $('#change-password').hide()
+  // $('#game-table').hide()
+  // $('#lbl-board-message').text('Select an option below to begin').css({'color': '#0F2043', 'background-color': 'white', 'width': '300px'})
 }
 
 const signInFailure = function () {
@@ -45,20 +64,20 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
-  $('#game-page').hide()
+  $('.sighting-grid').hide()
   $('.userlogin').show()
   $('#sign-in').find('input:text').val('')
   $('#sign-in').find('input:password').val('')
   $('#sign-up').find('input:text').val('')
   $('#sign-up').find('input:password').val('')
-  $('#change-password').find('input:password').val('')
-  $('#change-password-link').text('Change Password').css('color', 'black')
-  $('#lblSignInMessage').text('')
-  $('#lblSignUpMessage').text('')
+  // $('#change-password').find('input:password').val('')
+  // $('#change-password-link').text('Change Password').css('color', 'black')
+  // $('#lblSignInMessage').text('')
+  // $('#lblSignUpMessage').text('')
   $('#lblChangePasswordMessage').text('')
-  $('#lblSignOutMessage').text('User ' + store.user.email + ' successfully signedOut.').css({'color': 'green', 'background-color': 'white'})
-  $('#lblSignOutMessage').show()
-  $('#lblSignOutMessage').fadeOut(3000, function () {
+  $('#lblSignInMessage').text('User ' + store.user.email + ' successfully signedOut.').css({'color': 'green', 'background-color': 'white'})
+  $('#lblSignInMessage').show()
+  $('#lblSignInMessage').fadeOut(3000, function () {
     $(this).text('')
   })
 }

@@ -20,17 +20,17 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
-const onChangePasswordLink = function (event) {
-  event.preventDefault()
-  if ($('#change-password').css('display') === 'none') {
-    $('#change-password').show()
-    $('#change-password-link').text('Hide').css('color', 'black')
-  } else {
-    $('#change-password').hide()
-    $('#lblChangePasswordMessage').hide()
-    $('#change-password-link').text('Change Password').css('color', 'black')
-  }
-}
+// const onChangePasswordLink = function (event) {
+//   event.preventDefault()
+//   if ($('#change-password').css('display') === 'none') {
+//     $('#change-password').show()
+//     $('#change-password-link').text('Hide').css('color', 'black')
+//   } else {
+//     $('#change-password').hide()
+//     $('#lblChangePasswordMessage').hide()
+//     $('#change-password-link').text('Change Password').css('color', 'black')
+//   }
+// }
 
 const onChangePassword = function (event) {
   const data = getFormFields(this)
@@ -50,7 +50,8 @@ const onSignOut = function (event) {
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#change-password-link').on('click', onChangePasswordLink)
+  $('#btn-sign-Out').on('click', onSignOut)
+  // $('#change-password-link').on('click', onChangePasswordLink)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out-link').on('click', onSignOut)
 }

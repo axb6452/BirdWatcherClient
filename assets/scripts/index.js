@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
+const watchEvents = require('./watching/events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -17,5 +18,8 @@ $(() => {
 // on document ready
 
 $(() => {
+  // $('.userlogin').hide()
+  $('.sighting-grid').hide()
   authEvents.addHandlers()
+  watchEvents.addHandlers()
 })

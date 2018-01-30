@@ -1,5 +1,5 @@
 #!/bin/bash
 
-curl --include --request GET "https://glacial-woodland-13268.herokuapp.com/sightings/${ID}"
+curl --include --request GET "http://localhost:4741/sightings/${ID}"
 
 echo
