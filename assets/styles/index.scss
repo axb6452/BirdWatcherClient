@@ -2,7 +2,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background: #3CC;
+  // background: #3CC;
+  background: #ddd;
+  color: #000;
+  font-family: 'Raleway', sans-serif;
 }
 
 .container {
@@ -18,10 +21,6 @@ body {
   width: 500px;
 }
 
-.ud-buttons {
-  float: right;
- }
-
 h1 {
   color: #757575;
   font-size: 175%;
@@ -32,6 +31,13 @@ h1 {
 h1,
 input {
   font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.introlabel {
+  color: #191919;
+  font-family: 'cursive', serif;
+  font-size: large;
+  font-weight: 500;
 }
 
 .input {
@@ -58,9 +64,9 @@ input {
 }
 
 .inputbutton {
-  background-color: #3CC;
+  background-color: #006dcc;
   border: 0;
-  box-shadow: 0 5px 0 #2CADAD;
+  box-shadow: 0 5px 0 #0044cc;
   color: #fff;
   display: block;
   height: 50px;
@@ -69,7 +75,7 @@ input {
   width: 85%;
 
   .hover {
-    box-shadow: 0 3px 0 #2CADAD;
+    box-shadow: 0 3px 0 #2666A5;
     top: 2px;
   }
 
@@ -95,3 +101,74 @@ input {
   font-size: large;
   font-weight: bold;
 }
+
+.btnsignout {
+  float: right;
+}
+
+.sightingsheader {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-left: 550px;
+  text-transform: uppercase;
+}
+
+.lblclock-class {
+  font-size: large;
+}
+
+.clock-class {
+  font-family: cursive;
+  font-size: xx-large;
+  // margin-left: 450px;
+}
+
+.lbllatestsighting-class,
+.latestsighting-class {
+  font-family: 'Raleway', sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+
+.userlabel-class {
+  float: right;
+  font-family: 'Raleway', sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
+
+.ud-buttons {
+  float: right;
+ }
+
+.modal-header {
+  background: #ddd;
+  color: #191919;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+ }
+
+.modal-footer {
+  background: #ddd;
+  color: #191919;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+
+  .btnclose {
+    float: right;
+  }
+
+  .btnsave {
+    float: left;
+  }
+}
+
+.modalupdate {
+  width: 1000px;
+}
+
+thead {
+  background: #191919;
+  color: #AAA;
+ }

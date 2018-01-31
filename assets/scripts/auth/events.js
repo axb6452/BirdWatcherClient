@@ -20,18 +20,6 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
-// const onChangePasswordLink = function (event) {
-//   event.preventDefault()
-//   if ($('#change-password').css('display') === 'none') {
-//     $('#change-password').show()
-//     $('#change-password-link').text('Hide').css('color', 'black')
-//   } else {
-//     $('#change-password').hide()
-//     $('#lblChangePasswordMessage').hide()
-//     $('#change-password-link').text('Change Password').css('color', 'black')
-//   }
-// }
-
 const onChangePassword = function (event) {
   event.preventDefault()
   if ($('#txtoldpassword').val() === '') {

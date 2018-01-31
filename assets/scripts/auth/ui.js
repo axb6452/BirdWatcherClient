@@ -1,22 +1,6 @@
 'use strict'
 
 const store = require('../store')
-const watchEvents = require('../watching/events')
-
-function clock () {
-  const time = new Date()
-  const hours = time.getHours()
-  const minutes = time.getMinutes()
-  const seconds = time.getSeconds()
-
-  $('#clock').text(harold(hours) + ':' + harold(minutes) + ':' + harold(seconds))
-  function harold (standIn) {
-    if (standIn < 10) {
-      standIn = '0' + standIn
-    }
-    return standIn
-  }
-}
 
 const signUpSuccess = function (data) {
   clearAuthFields()
@@ -39,10 +23,8 @@ const signInSuccess = function (data) {
   clearAuthFields()
   store.user = data.user
   $('.userlogin').hide()
-  console.log(watchEvents)
   $('.sighting-grid').show()
-  $('#userlabel').text(store.user.email + ' id: ' + store.user.id)
-  setInterval(clock, 1000)
+  $('#userlabel').text(store.user.email + '; id: ' + store.user.id).css('color', '#4C4C4C')
   $('#lblSignInMessage').text('User ' + store.user.email + ' successfully signed in.')
     .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
   $('#lblSignInMessage').show()

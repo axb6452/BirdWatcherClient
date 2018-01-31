@@ -1,20 +1,52 @@
 const store = require('../store')
 const api = require('./api')
 
+function clock () {
+  const time = new Date()
+  const hours = time.getHours()
+  const minutes = time.getMinutes()
+  const seconds = time.getSeconds()
+
+  $('#clock').text(harold(hours) + ':' + harold(minutes) + ':' + harold(seconds))
+  function harold (standIn) {
+    if (standIn < 10) {
+      standIn = '0' + standIn
+    }
+    return standIn
+  }
+}
+
 const getAllSightingsSuccess = function (data) {
-  console.log(data)
-  console.log(data.sightings.length)
-  $('#grid td').remove()
-  let tr
-  for (let i = 0; i < data.sightings.length; i++) {
-    tr = $('<tr/>')
-    tr.append('<td>' + (i + 1) + '</td>')
-    tr.append('<td>' + data.sightings[i].id + '</td>')
-    tr.append('<td>' + data.sightings[i].bird + '</td>')
-    tr.append('<td>' + data.sightings[i].characteristics + '</td>')
-    tr.append('<td>' + data.sightings[i].body_color + '</td>')
-    tr.append('<td>' + data.sightings[i].user_id + '</td>')
-    $('#grid').append(tr)
+  if (data.sightings.length === 0) {
+    $('#grid').hide()
+    $('#btnUpdate').hide()
+    $('#btnDelete').hide()
+    $('.latestsighting-class').hide()
+  } else {
+    setInterval(clock, 1000)
+    let latestSighting = new Date(data.sightings[0].created_at)
+    latestSighting = latestSighting.toString()
+    latestSighting = latestSighting.slice(0, length - 15)
+    $('#latestsighting').text(latestSighting).css('color', '#4C4C4C')
+    $('#grid').show()
+    $('#btnUpdate').show()
+    $('#btnDelete').show()
+    $('.latestsighting-class').show()
+    $('#grid td').remove()
+    let tr
+    let tbody
+    for (let i = 0; i < data.sightings.length; i++) {
+      tbody = $('<tbody>')
+      tr = $('<tr/>')
+      tr.append('<td>' + (i + 1) + '</td>')
+      tr.append('<td>' + data.sightings[i].id + '</td>')
+      tr.append('<td>' + data.sightings[i].bird + '</td>')
+      tr.append('<td>' + data.sightings[i].characteristics + '</td>')
+      tr.append('<td>' + data.sightings[i].body_color + '</td>')
+      tr.append('<td>' + data.sightings[i].user_id + '</td>')
+      tbody.append(tr)
+      $('#grid').append(tbody)
+    }
   }
 }
 
@@ -26,7 +58,7 @@ const getAllSightingsFailure = function () {
 
 const createSightingSuccess = function (data) {
   clearFormFields()
-  $('#latestsighting').text(Date(data.sighting.created_at))
+  // $('#latestsighting').text(Date(data.sighting.created_at))
   $('#lblgridmessage')
     .text('New sighting has been added. ' + 'Bird: ' + data.sighting.bird + '. Features: ' + data.sighting.characteristics + '. Color: ' + data.sighting.body_color + ' by user ' + store.user.email)
     .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
@@ -66,7 +98,7 @@ const deleteSightingSuccess = function () {
     .text('Sighting with id ' + id + ' has been deleted by user ' + store.user.email)
     .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
   $('#lblgridmessage').show()
-  $('#lblgridmessage').fadeTp(5000, 0)
+  $('#lblgridmessage').fadeTo(5000, 0)
   api.getAllSightings()
     .then(getAllSightingsSuccess).catch(getAllSightingsFailure)
 }

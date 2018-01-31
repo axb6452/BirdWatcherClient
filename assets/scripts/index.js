@@ -18,7 +18,6 @@ $(() => {
 // on document ready
 
 $(() => {
-  // $('.userlogin').hide()
   $('.sighting-grid').hide()
   authEvents.addHandlers()
   watchEvents.addHandlers()

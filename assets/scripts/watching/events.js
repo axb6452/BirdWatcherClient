@@ -61,7 +61,7 @@ const onDelete = function (event) {
     $('#txtdeleteid').css({'border': 'solid', 'border-color': 'red'})
     return false
   } else {
-    $('#updateModal').modal('toggle')
+    $('#deleteModal').modal('toggle')
     api.deleteSighting()
       .then(ui.deleteSightingSuccess)
       .catch(ui.deleteSightingFailure)
