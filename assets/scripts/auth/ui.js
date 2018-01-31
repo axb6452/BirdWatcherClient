@@ -3,7 +3,7 @@
 const store = require('../store')
 const watchEvents = require('../watching/events')
 
-function clock () { // We create a new Date object and assign it to a variable called "time".
+function clock () {
   const time = new Date()
   const hours = time.getHours()
   const minutes = time.getMinutes()
@@ -19,72 +19,87 @@ function clock () { // We create a new Date object and assign it to a variable c
 }
 
 const signUpSuccess = function (data) {
+  clearAuthFields()
   $('#sign-up').find('input:text').val('')
   $('#sign-up').find('input:password').val('')
-  $('#lblSignUpMessage').text('User ' + data.user.email + ' successfully created.').css({'color': 'green', 'background-color': 'white'})
+  $('#lblSignUpMessage').text('User ' + data.user.email + ' successfully created.')
+    .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
   $('#lblSignUpMessage').show()
-  $('#lblSignUpMessage').fadeOut(3000, function () {
-    $(this).text('')
-  })
+  $('#lblSignUpMessage').fadeTo(3000, 0)
 }
 
 const signUpFailure = function () {
+  clearAuthFields()
   $('#lblSignUpMessage').show()
-  $('#lblSignUpMessage').text('Error during sign up').css({'color': 'red', 'background-color': 'white'}).show()
+  $('#lblSignUpMessage').text('Error during sign up')
+    .css({'color': 'red', 'background-color': 'white', 'opacity': '100'}).show()
 }
 
 const signInSuccess = function (data) {
+  clearAuthFields()
   store.user = data.user
   $('.userlogin').hide()
   console.log(watchEvents)
   $('.sighting-grid').show()
+  $('#userlabel').text(store.user.email + ' id: ' + store.user.id)
   setInterval(clock, 1000)
-  // $('#game-page').show()
-  // $('#change-password').hide()
-  // $('#game-table').hide()
-  // $('#lbl-board-message').text('Select an option below to begin').css({'color': '#0F2043', 'background-color': 'white', 'width': '300px'})
+  $('#lblSignInMessage').text('User ' + store.user.email + ' successfully signed in.')
+    .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
+  $('#lblSignInMessage').show()
+  $('#lblSignInMessage').fadeTo(3000, 0)
 }
 
 const signInFailure = function () {
-  $('#lblSignInMessage').text('Error during sign in').css({'color': 'red', 'background-color': 'white'}).show()
+  clearAuthFields()
+  $('#lblSignOutMessage').text('Error during sign in')
+    .css({'color': 'red', 'background-color': 'white', 'opacity': '100'}).show()
 }
 
 const changePasswordSuccess = function () {
-  $('#change-password').find('input:password').val('')
-  $('#lblChangePasswordMessage')
+  clearAuthFields()
+  $('#lblSignInMessage')
     .text('Successfully changed password')
-    .css({'color': 'green', 'background-color': 'white'})
+    .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
     .show()
-  $('#change-password').hide()
-  $('#change-password-link').text('Change Password')
+  $('#lblSignInMessage').fadeTo(3000, 0)
 }
 
 const changePasswordFailure = function () {
-  $('#lblChangePasswordMessage').text('Error during change password').css({'color': 'red', 'background-color': 'white'}).show()
+  clearAuthFields()
+  $('#lblSignInMessage').text('Error during change password')
+    .css({'color': 'red', 'background-color': 'white', 'opacity': '100'}).show()
 }
 
 const signOutSuccess = function () {
+  clearAuthFields()
   $('.sighting-grid').hide()
   $('.userlogin').show()
+  $('#lblSignOutMessage').text('User ' + store.user.email + ' successfully signed out.')
+    .css({'color': 'green', 'background-color': 'white', 'opacity': '100'})
+  $('#lblSignOutMessage').show()
+  $('#lblSignOutMessage').fadeTo(3000, 0)
+}
+
+const signOutFailure = function () {
+  clearAuthFields()
+  $('#lblSignOutMessage').show()
+  $('#lblSignOutMessage').text('Error during sign out')
+    .css({'color': 'red', 'background-color': 'white', 'opacity': '100'}).show()
+}
+
+const clearAuthFields = function () {
   $('#sign-in').find('input:text').val('')
   $('#sign-in').find('input:password').val('')
   $('#sign-up').find('input:text').val('')
   $('#sign-up').find('input:password').val('')
-  // $('#change-password').find('input:password').val('')
-  // $('#change-password-link').text('Change Password').css('color', 'black')
-  // $('#lblSignInMessage').text('')
-  // $('#lblSignUpMessage').text('')
-  $('#lblChangePasswordMessage').text('')
-  $('#lblSignInMessage').text('User ' + store.user.email + ' successfully signedOut.').css({'color': 'green', 'background-color': 'white'})
-  $('#lblSignInMessage').show()
-  $('#lblSignInMessage').fadeOut(3000, function () {
-    $(this).text('')
-  })
-}
-
-const signOutFailure = function () {
-  $('#lblSignOutMessage').show()
-  $('#lblSignOutMessage').text('Error during sign out').css({'color': 'red', 'background-color': 'white'})
+  $('#txtoldpassword').val('')
+  $('#txtnewpassword').val('')
+  $('.input-user-changepassword').val('')
+  $('#lblSignUpMessage').text('')
+  $('#lblSignInMessage').text('')
+  $('#lblSignOutMessage').text('')
+  $('#txtoldpassword').css('border', '0')
+  $('#txtnewpassword').css('border', '0')
 }
 
 module.exports = {
@@ -95,5 +110,6 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  clearAuthFields
 }

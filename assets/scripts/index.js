@@ -22,4 +22,5 @@ $(() => {
   $('.sighting-grid').hide()
   authEvents.addHandlers()
   watchEvents.addHandlers()
+  $('.sighting-grid').on('load', watchEvents.onGridLoad())
 })

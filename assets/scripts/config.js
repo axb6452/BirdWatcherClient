@@ -2,7 +2,7 @@
 
 const config = {
   apiOrigins: {
-    // development: 'http://localhost:4741',
+    development: 'http://localhost:4741',
     production: 'https://glacial-woodland-13268.herokuapp.com'
   }
 }

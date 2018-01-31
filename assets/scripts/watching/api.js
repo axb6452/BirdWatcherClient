@@ -3,22 +3,6 @@
 const config = require('../config')
 const store = require('../store')
 
-const createSighting = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/sightings',
-    method: 'POST',
-    data
-  })
-}
-
-const updateSighting = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/sightings/' + store.sighting.id,
-    method: 'PATCH',
-    data
-  })
-}
-
 const getAllSightings = function () {
   return $.ajax({
     url: config.apiOrigin + '/sightings',
@@ -26,24 +10,41 @@ const getAllSightings = function () {
   })
 }
 
-const getSingleSighting = function (id) {
+const createSighting = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sightings/' + id,
-    method: 'GET'
+    url: config.apiOrigin + '/sightings',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
   })
 }
 
-const deleteSighting = function (id) {
+const updateSighting = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/sightings/' + id,
-    method: 'DELETE'
+    url: config.apiOrigin + '/sightings/' + $('#txtupdateid').val(),
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteSighting = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/sightings/' + $('#txtdeleteid').val(),
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
 module.exports = {
+  getAllSightings,
   createSighting,
   updateSighting,
-  getAllSightings,
-  getSingleSighting,
   deleteSighting
 }

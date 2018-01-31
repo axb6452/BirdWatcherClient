@@ -33,11 +33,25 @@ const onSignIn = function (event) {
 // }
 
 const onChangePassword = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+  if ($('#txtoldpassword').val() === '') {
+    $('#txtoldpassword').css({'border': 'solid', 'border-color': 'red'})
+    return false
+  } else if ($('#txtnewpassword').val() === '') {
+    $('#txtnewpassword').css({'border': 'solid', 'border-color': 'red'})
+    return false
+  } else {
+    $('#changePasswordModal').modal('toggle')
+    const data = {
+      passwords: {
+        old: $('#txtoldpassword').val(),
+        new: $('#txtnewpassword').val()
+      }
+    }
+    api.changePassword(data)
+      .then(ui.changePasswordSuccess)
+      .catch(ui.changePasswordFailure)
+  }
 }
 
 const onSignOut = function (event) {
@@ -47,13 +61,17 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onClearInputs = function (event) {
+  $('#txtoldpassword').val('')
+  $('#txtnewpassword').val('')
+}
+
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#btn-sign-Out').on('click', onSignOut)
-  // $('#change-password-link').on('click', onChangePasswordLink)
-  $('#change-password').on('submit', onChangePassword)
-  $('#sign-out-link').on('click', onSignOut)
+  $('#btn-sign-out').on('click', onSignOut)
+  $('#btn-user-changepassword').on('click', onChangePassword)
+  $('#changePasswordModal').on('hidden.bs.modal', onClearInputs)
 }
 
 module.exports = {
