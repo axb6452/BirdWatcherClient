@@ -82,6 +82,7 @@ const clearAuthFields = function () {
   $('#lblSignOutMessage').text('')
   $('#txtoldpassword').css('border', '0')
   $('#txtnewpassword').css('border', '0')
+  $('#lblgridmessage').text('')
 }
 
 module.exports = {

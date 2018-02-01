@@ -87,7 +87,7 @@ const updateSightingSuccess = function (data) {
 
 const updateSightingFailure = function () {
   clearFormFields()
-  $('#lblgirdmessage').text('Error Updating Sighting').css({'background-color': 'white', 'color': 'red', 'opacity': '100'})
+  $('#lblgridmessage').text('Error Updating Sighting').css({'background-color': 'white', 'color': 'red', 'opacity': '100'})
   $('#lblgridmessage').show()
 }
 
