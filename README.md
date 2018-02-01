@@ -4,7 +4,7 @@ This application provides an interface for users, ranging from the keen enthusia
 
 Functionality
 
-The front end, built using HTML, CSS and JavaScript, interacts with a back end BirdWatcher API for CRUD operations. API Repo - https://github.com/axb6452/BirdWatcherAPI
+The front end for the Bird Tracker project, built using HTML, CSS and JavaScript, interacts with a back end BirdWatcher API for CRUD operations. API Repo - https://github.com/axb6452/BirdWatcherAPI
 
 Technologies Used:
 
@@ -34,4 +34,4 @@ Planning:
 
 Link to wireframes & user stories:
 
-https://drive.google.com/drive/folders/1G0it4-ELiZTmk-Qr1kGwGmKgb1UeSFAB?usp=sharing
+https://drive.google.com/drive/folders/1xRhkojc99AEYSExEwo6gm41M8UNh7viI?usp=sharing
