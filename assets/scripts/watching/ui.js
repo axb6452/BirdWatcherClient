@@ -1,7 +1,7 @@
 const store = require('../store')
 const api = require('./api')
 
-function clock () {
+const clock = function () {
   const time = new Date()
   const hours = time.getHours()
   const minutes = time.getMinutes()
@@ -17,13 +17,13 @@ function clock () {
 }
 
 const getAllSightingsSuccess = function (data) {
+  setInterval(clock, 1000)
   if (data.sightings.length === 0) {
     $('#grid').hide()
     $('#btnUpdate').hide()
     $('#btnDelete').hide()
     $('.latestsighting-class').hide()
   } else {
-    setInterval(clock, 1000)
     let latestSighting = new Date(data.sightings[0].created_at)
     latestSighting = latestSighting.toString()
     latestSighting = latestSighting.slice(0, length - 15)
