@@ -1,61 +1,37 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+Overview
 
-# browser-template
+This application provides an interface for users, ranging from the keen enthusiast to scientific professionals, to observe and keep track of bird sightings in a number of locations. The data logged can be can be used for statistical analysis, which in turn can be used to determine bird prevalence in a environment as a factor of time. Such insight will allow conclusions to be drawn on bird vulnerability and possibility of extinction.
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+Functionality
 
-## Installation
+The front end, built using HTML, CSS and JavaScript, interacts with a back end BirdWatcher API for CRUD operations. API Repo - https://github.com/axb6452/BirdWatcherAPI
 
-1.  [Download](../../archive/master.zip) this template.
-1.  Unzip and rename the template directory.
-1.  Empty [`README.md`](README.md) and fill with your own content.
-1.  Replace all instances of `BirdWatcher` with the name of your project.
-1.  Move into the new project and `git init`
-1.  Add all of the files in your project with the command `git add -A`
-  -   *Note:* THIS IS THE ONLY TIME YOU SHOULD RUN THIS COMMAND
-1.  Commit all of your files with the command `git commit`
-  -   Your commit title should read `Initial commit`
-1.  Install dependencies with `npm install`.
+Technologies Used:
 
-## Structure
+- HTML
+- css
+- JavaScript Bootstrap
+- JavaScript - jQuery
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+Unsolved Problems:
 
-Developers should set `config.apiOrigins.production` (and
-`config.apiOrigins.development` if it differs from the default).  With
-`apiOrigins` set, developers may rely on `config.apiOrigin` as the base for API
-URLs.
+1) Pagination on Sightings grid to reflect a neater grid.
+2) Update and delete buttons should be appended to grid as buttons and should perform CRUD operations for respective row's fields.
+3) Incorporate side menu bar with links for the one-many relationship grid and many-many relationship grid.
+4) Develop export to spreadsheet functionality so that statistical analysis on data can be performed in excel.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss).
+Planning:
 
-Developers should use [getFormFields](forms.md) to retrieve form data to send to
-an API.
+1) Created Wireframes and Entity Relationship diagrams based on initial bird tracker idea. Discussed ERD with team group and made slight adjustments to MVP and one-many/many-many entity relationships
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+2) Discussed wireframes with Jordan and received insight on one-many relationship. We touched on whether "locations" should constitute a field in the sightings table and on the possibility of initially seeding data should be used for the locations table when creating a relationship between locations and sightings.
 
-## Tasks
+3) After receiving approval, set up heroku and rails API, followed the suggested schedule under the Full stack project guidelines, beginning with the API and finishing with the client application.
 
-Developers should run these often!
+4) MVP version complete. Plan to continue with v2 and v3 of user stories and ERD when time permits.
 
--   `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
--   `grunt make-standard`: reformats all your code in the JavaScript Standard Style
--   `grunt <server|serve|s>`: generates bundles, watches, and livereloads
--   `grunt test`: runs any automated tests, depends on `grunt build`
--   `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+5) Spent a lot of time in the CSS layout and ran into a few issues during production deployment of the rails API to heroku. Posting issues under issues queue/feedback from colleagues helped me resolve issues.
 
-## [License](LICENSE)
+Link to wireframes & user stories:
 
-1.  All content is licensed under a CC­BY­NC­SA 4.0 license.
-1.  All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+https://drive.google.com/drive/folders/1G0it4-ELiZTmk-Qr1kGwGmKgb1UeSFAB?usp=sharing
