@@ -25,13 +25,9 @@ The front end of the Bird Tracker project which interacts with a back end BirdWa
 ## Planning, Process and Problem Solving:
 
 1) Created Wireframes and Entity Relationship diagrams based on initial bird tracker idea. Discussed ERD with team group and made slight adjustments to MVP and one-many/many-many entity relationships
-
 2) Discussed proposal with consultants and received feedback on specificities, including crafting development ideas on the  one-many/many-many entity framework relationships. Particular discussion touched on whether "locations" should constitute a field in the sightings table and on the possibility of initially seed of locations data during the one-many relationship establishment.
-
 3) After receiving approval, set up heroku and rails API, followed the suggested schedule under the Full stack project guidelines, beginning with the API and finishing with the client application.
-
 4) MVP version complete. Plan to continue with v2 and v3 of project proposal when time permits.
-
 5) Spent a lot of time in the CSS layout and ran into a few issues during production deployment of the rails API to heroku. Posting issues under issues queue/feedback from colleagues helped me resolve issues.
 
 ### Deployed Paths
